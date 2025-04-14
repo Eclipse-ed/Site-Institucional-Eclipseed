@@ -1,12 +1,17 @@
 body {
     font-family: 'Poppins';
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #0a1f1c;
 }
 
 .imagem {
-    width: 200px;
-    height: 125px;
+    margin-left: 15px;
+    width: 150px;
+    height: 75px;
     background-size: cover;
-    background-image: url('../assets/logo.png');
+    background-image: url('../assets/logo-eclipseed-white.png');
 }
 
 .conteudoImg {
@@ -20,21 +25,27 @@ body {
 
 .header {
     display: flex;
+    position:fixed;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    height: 15%;
     width: 100%;
-    font-size: 15px;
+    font-size: 18px;
+    background-color: #144f44;
+    color:white;
+    border-radius: 0px 0px 15px 15px;
 }
 
 .navegacao {
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-right: 5%;
+    margin-left: 15%;
 }
 
 .login {
-    padding-right: 5%;
+    padding-right: 3%;
 }
 
 .atual {
@@ -44,23 +55,24 @@ body {
 .navegacao a {
     text-decoration: none;
     font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: black;
+    color: white;
 }
 
 .login span {
     font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.login a {
+.textoChamativo {
     font-weight: bolder;
     text-decoration: none;
     font-family: 'Poppins','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: black;
+    color: white;
 
 }
 
 .container{
     width: 100%;
+    padding: 10% 0px 0px 0px;
     height: 500px;
     display: flex;
     flex-direction: row;
@@ -69,16 +81,84 @@ body {
 }
 
 .container h1 {
-    font-size: 65px;
-    color: #45642F;
+    font-size: 85px;
+    color: #00ffd1;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 .container span {
     font-size: 20px;
-    color: #838181;
+    color: #f0f4f4;
     font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
 }
+
+.container .botao {
+    border-radius: 15px;
+    width: 100px;
+    height: 45px;
+    background-color:#144f44;
+    color: white;
+}
+
+.container .mensagem {
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre_nos {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 75%;
+    justify-content: space-around;
+    align-items: space-around;
+
+}
+
+.sobre_nos .imagens {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+.sobre_nos .sobrenos {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    color: white;
+    justify-content: cover;
+    align-items: cover;
+}
+
+.sobre_nos .sobrenos h1 {
+    font-size: 45px;
+}
+
+.sobre_nos .sobrenos span {
+    font-size: 25px;
+    margin-right: 30px;
+}
+
+.sobre_nos .imagens img {
+    width: 70%;
+    height: 25%;
+    padding: 2.5%;
+    border-radius: 45px;
+}
+
+.sobre_nos .imagens #imagem-direita {
+    margin-left: 20%;
+}
+
+
+
+
+
+
 
 /* MONITORAMENTO */
 .icon-profile {
