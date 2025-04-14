@@ -25,7 +25,9 @@ body {
 
 .header {
     display: flex;
-    position:fixed;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     justify-content: space-between;
     align-items: center;
     height: 15%;
@@ -33,7 +35,6 @@ body {
     font-size: 18px;
     background-color: #144f44;
     color:white;
-    border-radius: 0px 0px 15px 15px;
 }
 
 .navegacao {
@@ -72,7 +73,6 @@ body {
 
 .container{
     width: 100%;
-    padding: 10% 0px 0px 0px;
     height: 500px;
     display: flex;
     flex-direction: row;
@@ -176,7 +176,7 @@ body {
 
 .container-monitoramento h1 {
     font-size: 50px;
-    color: #45642F;
+    color: white;
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
@@ -201,7 +201,7 @@ body {
     justify-content: center;
     margin-top: 2%;
     margin-right: 40px;
-    color: #45642F;
+    color: white;
     font-size: 20px;
     font-weight: bold;
 }
@@ -209,8 +209,7 @@ body {
 .sensores {
     display: flex;
     justify-content: center;  
-    background-color: #FFFFFF;
-    border-color: #000000;
+    background-color: #1d332f;
     border-style: solid;
     border-width: 2px;
     height: 200px;
@@ -223,7 +222,7 @@ body {
     border: none;
     height: 40px;
     width: 80%;
-    background-color: #45642F;
+    background-color: #171f1d;
     color: white;
     border-radius: 10px;
     font-family: 'Poppins';
@@ -232,14 +231,13 @@ body {
 }
 
 .sensores button:hover {
-    background-color: #2b3b1f;
+    background-color: black;
 }
 
 .metricas {
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
-    border-color: #000000;
+    background-color: #1d332f;
     border-style: solid;
     border-width: 2px;
     height: 100px;
@@ -274,8 +272,7 @@ body {
 .texto-metrica {
     font-size: 15px;
     font-family: 'Poppins';
-    color: black;
-    font-weight: 500;
+    color: white;
 }
 
 .grafico {
