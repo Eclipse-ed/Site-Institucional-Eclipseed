@@ -160,6 +160,7 @@ body {
 
 
 
+
 /* MONITORAMENTO */
 .icon-profile {
     width: 50px;
@@ -180,16 +181,20 @@ body {
 }
 
 .conteudo-monitoramento {
-    justify-content: center;
-    /* background-color: #838181; */
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
     height: fit-content;
     width: 100%;
+    gap: 40px;
 }
 
 .legenda {
+    width: 25%;
     display: flex;
-    align-items: flex-end;
     flex-direction: column;
+    align-items: flex-start; 
+    gap: 20px;
 }
 
 .legenda span {
@@ -209,7 +214,7 @@ body {
     border-style: solid;
     border-width: 2px;
     height: 200px;
-    width: 15%;
+    width: 100%;
     border-radius: 20px;
 }
 
@@ -238,7 +243,7 @@ body {
     border-style: solid;
     border-width: 2px;
     height: 100px;
-    width: 13%;
+    width: 100%;
     border-radius: 20px;
     justify-content: center;
     padding: 10px;
@@ -273,4 +278,6 @@ body {
     font-weight: 500;
 }
 
-/*terminar e adicionar grafico DASHBOARD*/
+.grafico {
+    width: 75%
+}
