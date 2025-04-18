@@ -92,7 +92,7 @@ body {
     font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
 }
 
-.container .botao {
+.botao {
     border-radius: 15px;
     width: 100px;
     height: 45px;
@@ -154,11 +154,86 @@ body {
     margin-left: 20%;
 }
 
+.perguntasFreq {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 800px;
+}
 
+.perguntasFreq .cards {
+    display: flex;
+    background-color:#144f44;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 50%;
+    height: 15%;
+    padding: 20px;
+}
 
+.perguntasFreq .cards span {
+    color: antiquewhite;
+    text-decoration:underline;
+}
 
+.fac {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    align-items: center;
+}
 
+.fac .formulario {
+    border-radius: 10px;
+    background-color: #144f44;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 600px;
+    width: 600px;
+}
 
+.fac .formulario input {
+    padding: 2.5%;
+    width: 70%;
+    border-radius: 15px;
+}
+
+.fac .formulario textarea {
+    height: 100px;
+    width: 75%;
+    border-radius: 15px;
+}
+
+.fac .formulario .botao {
+    background-color: #171f1d;
+}
+
+.footer {
+    background-color:#144f44;
+    color:aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer span {
+    padding: 15px;
+    font-weight: bolder;
+}
 
 
 /* MONITORAMENTO */
