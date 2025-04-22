@@ -56,8 +56,8 @@
         valorSaca = Number(valorSaca);
 
         // Percentuais de perda
-        var perdaSemMonitoramento = 0.13;
-        var perdaComMonitoramento = 0.04;
+        var perdaSemMonitoramento = 0.1;
+        var perdaComMonitoramento = 0.02;
 
         // Soja perdida
         var sojaPerdidaSem = quantidadeHectares * perdaSemMonitoramento * quantidadeSojaPorHectare;
@@ -76,14 +76,14 @@
 
     🌾 Soja por hectare: ${quantidadeSojaPorHectare} sacas<br><br>
 
-    🔴 Sem monitoramento: Existe uma perda de 13% (${sojaPerdidaSem} sacas)<br>
-    <a>Sem monitoramento, a produção sofre uma perda significativa de 13%.</a><br><br>
+    🔴 Sem monitoramento: Existe uma perda de 10% (${sojaPerdidaSem} sacas)<br>
+    <a>Sem monitoramento, a produção sofre uma perda significativa de 10%.</a><br><br>
 
     💸 Prejuízo: <a style="color:red;">${prejuizoSem.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
     <a>Este é o valor do prejuízo financeiro devido à perda sem monitoramento.</a><br><br>
 
-    🟢 Com monitoramento: perda de 4% (${sojaPerdidaCom} sacas)<br>
-    <a>Com monitoramento, a perda é reduzida para apenas 4%.</a><br><br>
+    🟢 Com monitoramento: perda de 2% (${sojaPerdidaCom} sacas)<br>
+    <a>Com monitoramento, a perda é reduzida para apenas 2%.</a><br><br>
 
     💸 Perda reduzida: <a style="color:gold;">${prejuizoCom.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
     <a>Este é o valor do prejuízo financeiro com monitoramento, que é significativamente menor.</a><br><br>
