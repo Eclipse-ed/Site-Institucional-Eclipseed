@@ -29,21 +29,35 @@
         <div class="form-container">
             <div class="input-container">
                 <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Nome">
+                <input type="text" placeholder="Nome" id="input_nome">
             </div>
 
             <div class="input-container">
                 <img src="../assets/icon-email.png" alt="ícone" class="input-icon">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Email" id="input_email">
             </div>
 
             <div class="input-container">
                 <img src="../assets/icon-senha.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Senha">
+                <input type="text" placeholder="Senha" id="input_senha">
             </div>
         </div>
 
-        <button>Login</button>
+        <button onclick="validar()">Login</button>
     </div>
 </body>
 </html>
+
+<script>
+    function validar() {
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        if (nome == "" || email == "" || senha == "") {
+            alert("Campos Inválidos!");
+        } else {
+            window.location.href = "./dashboard.html";
+        }
+    }
+</script>
