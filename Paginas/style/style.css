@@ -378,9 +378,9 @@
     .body-dif {
         display: flex;
         flex-direction: row;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        /* overflow: hidden; */
     }
 
 
@@ -389,13 +389,27 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        height: 100vh;
+        height: 750px;
         width: 35%;
         background-color: #144f44;
-        overflow: hidden;
+    }
+
+    .left-pagca {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 1000px;
+        width: 35%;
+        background-color: #144f44;
     }
 
     .left-pag .icon-back {
+        padding: 25px;
+        height: 55px;
+        width: 55px;
+    }
+    .left-pagca .icon-back {
         padding: 25px;
         height: 55px;
         width: 55px;
@@ -406,7 +420,18 @@
         height: 160px;
     }
 
+    .left-pagca .logo-white-big {
+        margin-left: 18%;
+        height: 160px;
+    }
+
     .left-pag p {
+        font-size: 40px;
+        padding: 40px;
+        color: white;
+    }
+
+    .left-pagca p {
         font-size: 40px;
         padding: 40px;
         color: white;
@@ -425,11 +450,33 @@
         cursor: pointer;
     }
 
+    .left-pagca button {
+        margin: 40px;
+        border: none;
+        height: 56px;
+        width: 40%;
+        background-color: #171f1d;
+        color: white;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        cursor: pointer;
+    }
+
     .left-pag button:hover {
         background-color: black;
     }
 
+    .left-pagca button:hover {
+        background-color: black;
+    }
+
     .left-pag span {
+        margin: 40px;
+        color: white;
+    }
+
+    .left-pagca span {
         margin: 40px;
         color: white;
     }
@@ -440,12 +487,18 @@
         color: #00ffd1;
     }
 
+    .left-pagca a {
+        text-decoration: underline;
+        font-weight: bold;
+        color: #00ffd1;
+    }
+
     .right-pag {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 25px;
-        height: 100vh;
+        height: 100%;
         width: 65%;
         overflow: hidden;
     }

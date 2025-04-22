@@ -11,14 +11,21 @@
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body class="body-dif">
-    <div class="left-pag">
+    <div class="left-pagca">
         <a href="index.html"><img class="icon-back" src="..\assets\btn_voltar.png" alt="icon-back"></a>
         <img class="logo-white-big" src="..\assets\logo-eclipseed-white.png" alt="logo-white">
         <p>
             Seja bem-vindo!
         </p>
-        <button>Cadastrar</button>
         <span>Já possui conta? <br> <a href="login.html">Ir para login</a></span>
+
+    <div style="align-items: center; justify-content: center; display: flex; color: white; margin-left: 40px;">  
+        A senha deve conter 8 caracteres e um caracter especial (!@#$%¨&*())
+    </div>
+
+    <div id="div_mensagem" style="align-items: center; justify-content: center; display: flex;">
+
+    </div>
     </div>
 
     <div class="right-pag">
@@ -30,17 +37,17 @@
         <div class="form-container">
             <div class="input-container">
                 <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Nome">
+                <input type="text" placeholder="Nome" id="input_nome">
             </div>
 
             <div class="input-container">
                 <img src="../assets/icon-email.png" alt="ícone" class="input-icon">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Email" id="input_email">
             </div>
 
             <div class="input-container">
                 <img src="../assets/icon-senha.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Senha">
+                <input type="text" oninput="formatar4()" min="8" placeholder="Senha" id="input_senha">
             </div>
 
             <div class="input-container">
@@ -58,14 +65,47 @@
                 <input oninput="formatar3()" id="input_cep" type="text" maxlength="9" placeholder="CEP">
             </div>
 
+            <div class="input-container">
+                <img src="../assets/icon-numeros (2).png" alt="ícone" class="input-icon">
+                <input id="input_numero" type="number" maxlength="9" placeholder="Número">
+            </div>
+            
+            <div class="input-container">
+                <img src="../assets/icon-complemento.png" alt="ícone" class="input-icon">
+                <input id="input_cep" type="text" maxlength="9" placeholder="Complemento (OPCIONAL)">
+            </div>
         </div>
+        <button onclick="cadastrar()" >Cadastrar</button>
 
     </div>
 </body>
 </html>
 <script>
+    function cadastrar() {
+    var cnpj = input_cnpj.value;
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var telefone = input_telefone.value
+        var numero = input_numero.value
+        var telefone = input_telefone.value;
+        var cep = input_cep.value;
+
+        if (cnpj == '' || nome == '' || email == '' || senha == '' || telefone == '' || numero == '' || telefone == '' || cep == '') {
+            alert('Todos os dados devem ser preenchidos!')
+        }else{
+            window.location.href = "./login.html";
+        }
+
+    }
     function formatar() {
         var cnpj = input_cnpj.value;
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var telefone = input_telefone.value
+        var numero = input_numero.value
+
         var caractereCnpj = cnpj
         cnpj = cnpj.replaceAll(".", "").replaceAll("/", "").replaceAll("-", "");
 
@@ -143,9 +183,36 @@
 
         input_cep.value = cepFormatado;
 
+ }
 
+ function formatar4() {
+    var senha = input_senha.value
+    var caracteresEspeciais = '!@#$%¨&*()'
+    var mensagem = ''
+    var contem = 0
+
+    for (var i = 0; i <= senha.length; i++){
+        var caracterAtual = senha[i]
+
+        for (var j = 0; j < caracteresEspeciais.length; j++){
+
+            if (caracterAtual == caracteresEspeciais[j]){
+                contem++;
+            }
+        }
+
+    }
+    
+    if (contem > 0 && senha.length >= 8 ){
+            mensagem += '<span style="color: #00ffd1"> A senha está válida </span>'
+        }else{
+            mensagem += '<span style="color: red"> A senha está inválida </span>'
+        }
+
+    div_mensagem.innerHTML = mensagem
 
  }
 
     
 </script>
+
