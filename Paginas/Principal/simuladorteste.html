@@ -52,26 +52,33 @@
 <script>
   // add links das outras telas
   //validar todos os campos e o css
+
+    // Função que realiza o cálculo com base nos dados preenchidos
   function calcular() {
-    var area = parseFloat(areaPlantada.value);
+    var area = parseFloat(areaPlantada.value);// Pega o valor da área e transforma em número
     var produtividade = parseFloat(produtividadeAtual.value);
     var preco = parseFloat(precoSaca.value);
-    var ganho = 0.17;
+    var ganho = 0.17;// Estimativa de ganho com o EclipseSeed (17%)
 
+      // Valida se todos os campos foram preenchidos corretamente
     if (isNaN(area) || isNaN(produtividade) || isNaN(preco) || area <= 0 || produtividade <= 0 || preco <= 0) {
       div_msg.innerHTML = '<span style="color: red; font-weight: bold;">Por favor, preencha todos os campos corretamente com valores válidos.</span>';
-      return;
+      return;// Para a execução da função se algum valor estiver errado
     }
 
+      // Cálculo da produção e receita atuais
     var producaoAtual = area * produtividade;
-    var receitaAtual = producaoAtual * preco;
+    var receitaAtual = producaoAtual * preco;//Receita (ou faturamento) é o valor total que você ganha com a venda da sua produção.
 
+      // Cálculo com o ganho estimado de produtividade (17% a mais)
     var novaProdutividade = produtividade * (1 + ganho);
     var novaProducao = area * novaProdutividade;
     var novaReceita = novaProducao * preco;
 
+      // Diferença entre a receita nova e a atual
     var lucroAdicional = novaReceita - receitaAtual;
 
+      // Formata os valores para reais (R$) com separador de milhar
     var receitaAtualFormatted = receitaAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     var novaReceitaFormatted = novaReceita.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     var lucroAdicionalFormatted = lucroAdicional.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
