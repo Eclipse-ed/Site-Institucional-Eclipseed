@@ -45,20 +45,107 @@
 
             <div class="input-container">
                 <img src="../assets/icon-cnpj.png" alt="ícone" class="input-icon">
-                <input type="number" placeholder="CNPJ">
-            </div>
-
-            <div class="input-container">
-                <img src="../assets/icon-cep.png" alt="ícone" class="input-icon">
-                <input type="number" placeholder="CEP">
+                <input oninput="formatar()" id="input_cnpj" type="text" maxlength="18" placeholder="CNPJ">
             </div>
             
             <div class="input-container">
                 <img src="../assets/icon-contato.png" alt="ícone" class="input-icon">
-                <input type="number" placeholder="Contato">
+                <input oninput="formatar2()" id="input_telefone" type="text" maxlength="14" placeholder="Telefone">
             </div>
+
+            <div class="input-container">
+                <img src="../assets/icon-cep.png" alt="ícone" class="input-icon">
+                <input oninput="formatar3()" id="input_cep" type="text" maxlength="9" placeholder="CEP">
+            </div>
+
         </div>
 
     </div>
 </body>
 </html>
+<script>
+    function formatar() {
+        var cnpj = input_cnpj.value;
+        var caractereCnpj = cnpj
+        cnpj = cnpj.replaceAll(".", "").replaceAll("/", "").replaceAll("-", "");
+
+        var cnpjFormatado = "";
+
+
+        for (var i = 0; i < cnpj.length; i++) {
+            var caractereAtual = cnpj[i];
+
+            if ((cnpj.length > 2 && i == 1) || (cnpj.length > 5 && i == 4)) {
+                cnpjFormatado += `${caractereAtual}.`
+            }
+            else if (cnpj.length > 8 && i == 7) {
+                cnpjFormatado += `${caractereAtual}/`
+            }
+            else if (cnpj.length > 12 && i == 11) {
+                cnpjFormatado += `${caractereAtual}-`
+            }
+            else {
+                cnpjFormatado += `${caractereAtual}`
+            }
+
+        }
+
+        input_cnpj.value = cnpjFormatado;
+
+    }
+
+    function formatar2() {
+        var telefone = input_telefone.value;
+
+        telefone = telefone.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "");
+
+        var telefoneFormatado = "";
+
+
+        for (var i = 0; i < telefone.length; i++) {
+            var caractereAtual = telefone[i];
+
+            if (telefone.length > 0 && i == 0) {
+                telefoneFormatado += `(${caractereAtual}`
+            } else if (telefone.length > 2 && i == 1) {
+                telefoneFormatado += `${caractereAtual})` 
+            }
+            else if (telefone.length > 7 && i ==6 ) {
+                telefoneFormatado += `${caractereAtual}-`}
+             else {
+                telefoneFormatado += `${caractereAtual}`
+            }
+
+        }
+
+        input_telefone.value = telefoneFormatado;
+       
+    }
+        function formatar3() {
+        var cep = input_cep.value;
+
+        cep = cep.replaceAll("-", "");
+
+        var cepFormatado = "";
+       
+
+        for (var i = 0; i < cep.length; i++) {
+            var caractereAtual = cep[i];
+
+            if (cep.length > 5 && i == 4) {
+                cepFormatado += `${caractereAtual}-`
+            }
+            else {
+                cepFormatado += `${caractereAtual}`
+            }
+
+  }
+
+        input_cep.value = cepFormatado;
+
+
+
+ }
+
+    
+</script>
