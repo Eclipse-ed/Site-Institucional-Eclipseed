@@ -1,29 +1,37 @@
-const graficoPizza = document.getElementById('grafico-pizza').getContext('2d');
-  const meuGrafico = new Chart(graficoPizza, {
+const ctx = document.getElementById('grafico-pizza').getContext('2d');
+
+const myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ['Estável', 'Inativo', 'Em Alerta'],
-      datasets: [{
-        label: 'Tempo',
-        data: [1800, 110, 320],
-      }]
+        labels: ['Estável', 'Em Alerta', 'Inativo'],
+        datasets: [{
+            data: [85, 10, 5],
+            backgroundColor: ['red', 'green', 'blue'],
+        }]
     },
+    plugins: [ChartDataLabels],
     options: {
-      plugins: {
-        legend: {
-          position: 'left',
-          labels: {
-            font: { size: 18 },
+        plugins: {
+          tooltip: {
+            enabled: false
           },
+            datalabels: {
+                display: 'inside',
+                formatter: (value, context) => {
+                    const sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                    const percentage = (value / sum * 100).toFixed(1) + '%';
+                    return percentage;
+                },
+                font: {
+                  color: 'white',
+                  weight: 'bold',
+                  size: 14,
+              },
+            },
+            tooltip: {
+              enabled: false
+            }
+            
         },
-        title: {
-          display: true,
-          text: 'Tempo em horas de funcionamento do sensor',
-          font: { size: 15 },
-          padding: { bottom: 30 }
-        }
-      },
-      responsive: false,
-      maintainAspectRatio: true
     }
-  });
+});

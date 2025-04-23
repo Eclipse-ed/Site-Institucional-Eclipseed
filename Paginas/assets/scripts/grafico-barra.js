@@ -6,8 +6,8 @@ new Chart(graficoBarra, {
         datasets: [{
             label: 'Lux médio de cada mês',
             data: [12650, 10710, 13624],
-            backgroundColor: '#FF8C00', 
-            borderColor: '#FF8C00',
+            backgroundColor: '#6A5ACD', 
+            borderColor: '#6A5ACD',
             borderWidth: 1,
             fontColor: ["rgb (0, 0, 0)"]
         }]
