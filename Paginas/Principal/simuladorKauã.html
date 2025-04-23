@@ -83,12 +83,12 @@
         Pesquisas apontam que entre 15% e 20% da produção é perdida normalmente, 10% desse valor representa a perda por luminosidade, 
         analisando as informações inseridas podemos observar:<br><br>
 
-    🔴 Sem monitoramento: Existe uma perda de 10% da produção sendo (${sojaPerdidaSem} sacas)<br><br>
+    🔴 Sem monitoramento: Existe uma perda de 10% da produção sendo ${sojaPerdidaSem.toFixed(0)} sacas.<br><br>
 
     💸 Prejuízo: <a style="color:red;">${prejuizoSem.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
     <a>Este é o valor do prejuízo financeiro devido à perda sem monitoramento.</a><br><br>
 
-    🟢 Com monitoramento: a taxa de 10% é reduzida a 2% sendo: (${sojaPerdidaCom} sacas)<br><br>
+    🟢 Com monitoramento: a taxa de 10% é reduzida a 2% sendo: ${sojaPerdidaCom.toFixed(0)} sacas.<br><br>
 
     💸 Perda com o monitoramento: <a style="color:gold;">${prejuizoCom.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
     <a>Este é o valor do prejuízo financeiro com monitoramento, que é significativamente menor.</a><br><br>

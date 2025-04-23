@@ -29,7 +29,7 @@
         <div class="form-container">
             <div class="input-container">
                 <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Razão Social" id="input_nome">
+                <input type="text" placeholder="Usuário" id="input_nome">
             </div>
 
             <div class="input-container">
@@ -39,7 +39,7 @@
 
             <div class="input-container">
                 <img src="../assets/icon-senha.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Senha" id="input_senha">
+                <input type="password" placeholder="Senha" id="input_senha">
             </div>
         </div>
 
@@ -54,7 +54,7 @@
         var email = input_email.value;
         var senha = input_senha.value;
 
-        if (nome == "Fernanda Caramico" || email == "caramico@sptech.com" || senha == "12345678@") {
+        if (nome == "Fernanda Caramico" && email == "caramico@sptech.com" && senha == "12345678@") {
             window.location.href = "./dashboard.html";
 
         } else {
