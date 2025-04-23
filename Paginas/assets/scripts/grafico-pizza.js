@@ -1,20 +1,19 @@
 const ctx = document.getElementById('grafico-pizza').getContext('2d');
 
+Chart.defaults.color = '#000';
+
 const myChart = new Chart(ctx, {
     type: 'pie',
     data: {
         labels: ['Estável', 'Em Alerta', 'Inativo'],
         datasets: [{
-            data: [85, 10, 5],
+            data: [75, 20, 10],
             backgroundColor: ['red', 'green', 'blue'],
         }]
     },
     plugins: [ChartDataLabels],
     options: {
         plugins: {
-          tooltip: {
-            enabled: false
-          },
             datalabels: {
                 display: 'inside',
                 formatter: (value, context) => {
@@ -23,13 +22,8 @@ const myChart = new Chart(ctx, {
                     return percentage;
                 },
                 font: {
-                  color: 'white',
-                  weight: 'bold',
-                  size: 14,
+                  size: 24
               },
-            },
-            tooltip: {
-              enabled: false
             }
             
         },

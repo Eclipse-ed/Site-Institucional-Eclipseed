@@ -1,5 +1,5 @@
 const MINIMO_DESEJADO = 10000;
-const MAXIMO_DESEJADO = 15000;
+const MAXIMO_DESEJADO = 20000;
 
 var graficoLinhas = new Chart(document.getElementById('grafico-linha').getContext('2d'), {
     type: 'line',
@@ -9,7 +9,7 @@ var graficoLinhas = new Chart(document.getElementById('grafico-linha').getContex
         // Dados mockados do sensor
         {
             label: 'Sensor',
-            data: [10000, 12420, 13540, 13660, 14000, 14340, 15000, 14730, 13520, 9500],
+            data: [10000, 10420, 11540, 12660, 15000, 16340, 20000, 14730, 13520, 9500],
             borderColor: 'rgba(0, 0, 0, 0.38)',
             backgroundColor: 'rgba(0, 0, 0, 0.38)',
             borderWidth: 2,
@@ -38,5 +38,6 @@ var graficoLinhas = new Chart(document.getElementById('grafico-linha').getContex
             fill: false,
             data: Array(10).fill(MINIMO_DESEJADO)
         }
+        
     ]}
 });
