@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Produção de Soja</title>
+  <link rel="stylesheet" href="../style/styleSimulador.css">
+  <link rel="stylesheet" href="../style/style.css">
+  <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="home">
+  <div class="header">
+    <div class="logo">
+      <div class="imagem"></div>
+    </div>
+    <div class="navegacao">
+      <a href="../Principal/index.html">Home</a>
+      <a class="atual" href="../Principal/simuladorKauã.html">Simulador</a>
+      <a href="../Principal/index.html">Sobre Nós</a>
+    </div>
+    <div class="login">
+      <a href="login.html" class="textoChamativo">Login</a>
+      |
+      <a href="../Principal/cadastro.html" class="textoChamativo">Cadastre-se</a>
+    </div>
+  </div>
+
+  <h2>Simulador de Produção de Soja</h2>
+
+  <label>Quantidade de soja por hectare (em sacas):</label>
+  <input type="number" id="sojaPorHectare" placeholder="🌾 Ex: 60">
+
+  <label>Quantidade de hectares em uso:</label>
+  <input type="number" id="hectares" placeholder="🌱 Ex: 100">
+
+  <label>Valor atual da saca de soja (R$):</label>
+  <input type="number" id="saca" placeholder="💰 Ex: 150">
+
+  <button onclick="simular()">Simular</button>
+
+  <div id="div_resultado"></div>
+
+  <script>
+    function simular() {
+      // Pegando os valores dos inputs pelos ids automaticamente disponíveis
+      var quantidadeHectares = hectares.value;
+      var quantidadeSojaPorHectare = sojaPorHectare.value;
+      var valorSaca = saca.value;
+
+      // Verifica se os campos estão preenchidos
+      if (quantidadeHectares == "" || quantidadeSojaPorHectare == "" || valorSaca == "") {
+        div_resultado.innerHTML = "Por favor, preencha todos os campos.";
+      } else {
+        // Convertendo para número
+        quantidadeHectares = Number(quantidadeHectares);
+        quantidadeSojaPorHectare = Number(quantidadeSojaPorHectare);
+        valorSaca = Number(valorSaca);
+
+        // Percentuais de perda
+        var perdaSemMonitoramento = 0.1;
+        var perdaComMonitoramento = 0.02;
+
+        // Soja perdida
+        var sojaPerdidaSem = quantidadeHectares * perdaSemMonitoramento * quantidadeSojaPorHectare;
+        var sojaPerdidaCom = quantidadeHectares * perdaComMonitoramento * quantidadeSojaPorHectare;
+
+        // Prejuízos
+        var prejuizoSem = sojaPerdidaSem * valorSaca;
+        var prejuizoCom = sojaPerdidaCom * valorSaca;
+        var economia = prejuizoSem - prejuizoCom;
+
+        // Exibição do resultado
+        div_resultado.innerHTML = `
+    🌱 Área: ${quantidadeHectares} hectares<br><br>
+
+    💰 Valor da saca: ${valorSaca.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br><br>
+
+    🌾 Soja por hectare: ${quantidadeSojaPorHectare} sacas<br>
+
+        Pesquisas apontam que entre 15% e 20% da produção é perdida normalmente, 10% desse valor representa a perda por luminosidade, 
+        analisando as informações inseridas podemos observar:<br><br>
+
+    🔴 Sem monitoramento: Existe uma perda de 10% da produção sendo ${sojaPerdidaSem.toFixed(0)} sacas.<br><br>
+
+    💸 Prejuízo: <a style="color:red;">${prejuizoSem.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
+    <a>Este é o valor do prejuízo financeiro devido à perda sem monitoramento.</a><br><br>
+
+    🟢 Com monitoramento: a taxa de 10% é reduzida a 2% sendo: ${sojaPerdidaCom.toFixed(0)} sacas.<br><br>
+
+    💸 Perda com o monitoramento: <a style="color:gold;">${prejuizoCom.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
+    <a>Este é o valor do prejuízo financeiro com monitoramento, que é significativamente menor.</a><br><br>
+
+    ✅ Economia estimada: <a style="color:limegreen;">${economia.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</a> <br>
+    <a>Este é o valor que você pode economizar ao utilizar o monitoramento.</a>
+    `;
+      }
+    }
+  </script>
+
+</body>
+
+</html>

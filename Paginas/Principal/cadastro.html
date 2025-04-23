@@ -19,13 +19,7 @@
         </p>
         <span>Já possui conta? <br> <a href="login.html">Ir para login</a></span>
 
-    <div style="align-items: center; justify-content: center; display: flex; color: white; margin-left: 40px;">  
-        A senha deve conter 8 caracteres e um caracter especial (!@#$%¨&*())
-    </div>
 
-    <div id="div_mensagem" style="align-items: center; justify-content: center; display: flex;">
-
-    </div>
     </div>
 
     <div class="right-pag">
@@ -37,7 +31,12 @@
         <div class="form-container">
             <div class="input-container">
                 <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Usuário" id="input_nome">
+                <input type="text" placeholder="Razão Social" id="input_razaoSocial">
+            </div>
+
+            <div class="input-container">
+                <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
+                <input type="text" placeholder="Nome Usuário" id="input_nome">
             </div>
 
             <div class="input-container">
@@ -47,13 +46,15 @@
 
             <div class="input-container">
                 <img src="../assets/icon-senha.png" alt="ícone" class="input-icon">
-                <input type="text" oninput="formatar4()" min="8" placeholder="Senha" id="input_senha">
+                <input type="password" oninput="formatar4()" min="8" placeholder="Senha" id="input_senha">
             </div>
-
-            <div class="input-container">
-                <img src="../assets/icon-razao.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Razão Social" id="input_razao">
+            <div style="color: white;">  
+                A senha deve conter 8 caracteres e um caracter especial (!@#$%¨&*())
             </div>
+        
+            <span id="div_mensagem" >
+        
+            </span>
 
             <div class="input-container">
                 <img src="../assets/icon-cnpj.png" alt="ícone" class="input-icon">
@@ -89,15 +90,15 @@
     function cadastrar() {
     var cnpj = input_cnpj.value;
         var nome = input_nome.value;
+        var razao = input_razaoSocial.value
         var email = input_email.value;
         var senha = input_senha.value;
-        var razao = input_razao.value;
         var telefone = input_telefone.value
         var numero = input_numero.value
         var telefone = input_telefone.value;
         var cep = input_cep.value;
 
-        if (cnpj == '' || nome == '' || email == '' || senha == '' || razao == '' || telefone == '' || numero == '' || telefone == '' || cep == '') {
+        if (cnpj == '' || nome == '' || email == '' || senha == '' || telefone == '' || numero == '' || telefone == '' || cep == '' || razao == '') {
             alert('Todos os dados devem ser preenchidos!')
         }else{
             window.location.href = "./login.html";
