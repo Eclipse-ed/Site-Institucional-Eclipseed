@@ -79,15 +79,15 @@
     var lucroAdicional = novaReceita - receitaAtual;
 
       // Formata os valores para reais (R$) com separador de milhar
-    var receitaAtualFormatted = receitaAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    var novaReceitaFormatted = novaReceita.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    var lucroAdicionalFormatted = lucroAdicional.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    var receitaAtualFinal = receitaAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    var novaReceitaFinal = novaReceita.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    var lucroAdicionalFinal = lucroAdicional.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     div_msg.innerHTML = `
   ✅ Análise concluída!<br><br>
-  Atualmente, com uma área plantada de ${area} hectares e uma produtividade de ${produtividade.toFixed(0)} sacas por hectare, sua produção total é de aproximadamente ${producaoAtual.toFixed(0)} sacas. Isso gera uma receita de ${receitaAtualFormatted}.
-  Com o uso do EclipseSeed, estimamos um aumento médio de 17% na produtividade. Nesse cenário, sua produção pode chegar a cerca de ${novaProducao.toFixed(0)} sacas, resultando em uma receita estimada de ${novaReceitaFormatted}.
-  Isso significa um lucro adicional estimado de ${lucroAdicionalFormatted}.
+  Atualmente, com uma área plantada de ${area} hectares e uma produtividade de ${produtividade.toFixed(0)} sacas por hectare, sua produção total é de aproximadamente ${producaoAtual.toFixed(0)} sacas. Isso gera uma receita de ${receitaAtualFinal}.
+  Com o uso do EclipseSeed, estimamos um aumento médio de 17% na produtividade. Nesse cenário, sua produção pode chegar a cerca de ${novaProducao.toFixed(0)} sacas, resultando em uma receita estimada de ${novaReceitaFinal}.
+  Isso significa um lucro adicional estimado de ${lucroAdicionalFinal}.
   Em resumo, o EclipseSeed pode te ajudar a produzir mais, ganhar mais e manejar sua plantação de maneira mais eficiente e inteligente.
   Estamos aqui para apoiar você no crescimento da sua lavoura com tecnologia e confiança.`;
   }
