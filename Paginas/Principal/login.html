@@ -29,7 +29,7 @@
         <div class="form-container">
             <div class="input-container">
                 <img src="../assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Nome" id="input_nome">
+                <input type="text" placeholder="Razão Social" id="input_nome">
             </div>
 
             <div class="input-container">
@@ -54,10 +54,11 @@
         var email = input_email.value;
         var senha = input_senha.value;
 
-        if (nome == "" || email == "" || senha == "") {
-            alert("Campos Inválidos!");
-        } else {
+        if (nome == "Fernanda Caramico" || email == "caramico@sptech.com" || senha == "12345678@") {
             window.location.href = "./dashboard.html";
+
+        } else {
+            alert('Usuário Inválido')
         }
     }
 </script>
