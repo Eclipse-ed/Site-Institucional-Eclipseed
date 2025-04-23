@@ -1,582 +1,639 @@
-body {
-    font-family: 'Poppins';
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    background-color: #0a1f1c;
-    height: 100%;
-}
-
-.imagem {
-    margin-left: 15px;
-    width: 150px;
-    height: 75px;
-    background-size: cover;
-    background-image: url('../assets/logo-eclipseed-white.png');
-}
-
-.conteudoImg {
-    margin-top: 25%;
-    border-radius: 15px;
-    width: 400px;
-    height: 500px;
-    background-size: cover;
-    background-image: url('../assets/homeplanta.png');
-}
-
-.conteudoImg2 {
-    margin-top: 25%;
-    border-radius: 15px;
-    width: 400px;
-    height: 500px;
-    background-size: cover;
-    background-image: url('../assets/img-home-login.png');
-}
-
-.header {
-    display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    justify-content: space-between;
-    align-items: center;
-    height: 15%;
-    width: 100%;
-    font-size: 18px;
-    background-color: #144f44;
-    color: white;
-}
-
-.navegacao {
-    width: 30%;
-    display: flex;
-    justify-content: space-around;
-    margin-right: 5%;
-    margin-left: 15%;
-}
-
-.login {
-    padding-right: 3%;
-}
-
-.atual {
-    font-weight: bolder;
-}
-
-.navegacao a {
-    text-decoration: none;
-    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-}
-
-.login span {
-    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.textoChamativo {
-    font-weight: bolder;
-    text-decoration: none;
-    font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-
-}
-
-.container {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.container h1 {
-    font-size: 85px;
-    color: #00ffd1;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-}
-
-.container span {
-    font-size: 20px;
-    color: #f0f4f4;
-    font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
-}
-
-.botao {
-    border-radius: 15px;
-    border: none;
-    width: 30%;
-    height: 45px;
-    background-color: #144f44;
-    color: white;
-    cursor: pointer;
-}
-
-.botao:hover {
-    background-color: black;
-}
-
-
-.container .mensagem {
-    display: flex;
-    flex-direction: column;
-}
-
-.sobre_nos {
-    margin-top: 15%;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 75%;
-    justify-content: space-around;
-    align-items: space-around;
-
-}
-
-.sobre_nos .imagens {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-left: 5%;
-    margin-top: 5px;
-}
-
-.sobre_nos .sobrenos {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    color: white;
-    justify-content: cover;
-    align-items: cover;
-}
-
-.sobre_nos .sobrenos h1 {
-    font-size: 45px;
-}
-
-.sobre_nos .sobrenos span {
-    font-size: 25px;
-    margin-right: 30px;
-}
-
-.sobre_nos .imagens img {
-    width: 70%;
-    height: 25%;
-    padding: 2.5%;
-    border-radius: 45px;
-}
-
-.sobre_nos .imagens #imagem-direita {
-    margin-left: 20%;
-}
-
-.perguntasFreq {
-    margin-top: 2%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    height: 800px;
-}
-
-.perguntasFreq .cards {
-    display: flex;
-    background-color: #144f44;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    width: 50%;
-    height: 15%;
-    padding: 20px;
-}
-
-.perguntasFreq .cards span {
-    color: antiquewhite;
-    text-decoration: underline;
-}
-
-.fac {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: white;
-    align-items: center;
-}
-
-.fac .formulario {
-    border-radius: 10px;
-    background-color: #144f44;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 600px;
-    width: 600px;
-}
-
-.fac .formulario input {
-    padding: 2.5%;
-    width: 70%;
-    border-radius: 15px;
-}
-
-.fac .formulario textarea {
-    height: 100px;
-    width: 75%;
-    border-radius: 15px;
-}
-
-.fac .formulario .botao {
-    background-color: #171f1d;
-}
-
-.footer {
-    background-color: #144f44;
-    color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 200px;
-    margin-top: 30px;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.footer span {
-    padding: 15px;
-    font-weight: bolder;
-}
-
-
-/* MONITORAMENTO */
-.icon-profile {
-    width: 50px;
-    height: 50px;
-}
-
-.container-monitoramento {
-    width: 80%;
-    height: 500px;
-    margin-left: 10%;
-    align-items: center;
-}
-
-.container-monitoramento h1 {
-    font-size: 50px;
-    color: white;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-}
-
-.conteudo-monitoramento {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: fit-content;
-    width: 100%;
-    gap: 40px;
-}
-
-.legenda {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.legenda span {
-    justify-content: center;
-    margin-top: 2%;
-    margin-right: 40px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.sensores {
-    display: flex;
-    justify-content: center;
-    background-color: #1d332f;
-    border-style: solid;
-    border-width: 2px;
-    height: 200px;
-    width: 100%;
-    border-radius: 20px;
-}
-
-.sensores button {
-    margin-top: 10px;
-    border: none;
-    height: 40px;
-    width: 80%;
-    background-color: #171f1d;
-    color: white;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.sensores button:hover {
-    background-color: black;
-}
-
-.metricas {
-    display: flex;
-    flex-direction: column;
-    background-color: #1d332f;
-    border-style: solid;
-    border-width: 2px;
-    height: 100px;
-    width: 100%;
-    border-radius: 20px;
-    justify-content: center;
-    padding: 10px;
-    gap: 10px;
-}
-
-.linha-metrica {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-}
-
-.maximo,
-.minimo {
-    height: 2px;
-    width: 40px;
-    border-radius: 4px;
-}
-
-.maximo {
-    background-color: red;
-}
-
-.minimo {
-    background-color: #FFBB00;
-}
-
-.texto-metrica {
-    font-size: 15px;
-    font-family: 'Poppins';
-    color: white;
-}
-
-.grafico {
-    width: 75%
-}
-
-/* CADASTRO E LOGIN */
-.body-dif {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-
-.left-pag {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100vh;
-    width: 35%;
-    background-color: #144f44;
-    overflow: hidden;
-}
-
-.left-pag .icon-back {
-    padding: 25px;
-    height: 55px;
-    width: 55px;
-}
-
-.left-pag .logo-white-big {
-    margin-left: 18%;
-    height: 160px;
-}
-
-.left-pag p {
-    font-size: 40px;
-    padding: 40px;
-    color: white;
-}
-
-.left-pag button {
-    margin: 40px;
-    border: none;
-    height: 56px;
-    width: 40%;
-    background-color: #171f1d;
-    color: white;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.left-pag button:hover {
-    background-color: black;
-}
-
-.left-pag span {
-    margin: 40px;
-    color: white;
-}
-
-.left-pag a {
-    text-decoration: underline;
-    font-weight: bold;
-    color: #00ffd1;
-}
-
-.right-pag {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-    height: 100vh;
-    width: 65%;
-    overflow: hidden;
-}
-
-.right-pag h1 {
-    color: #00ffd1;
-    font-size: 40px;
-}
-
-.right-pag p {
-    margin-top: 0;
-    color: #00ffd0dc;
-}
-
-.right-pag button {
-    margin: 40px;
-    border: none;
-    height: 56px;
-    width: 20%;
-    background-color: #144f44;
-    color: white;
-    border-radius: 10px;
-    font-family: 'Poppins';
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.right-pag button:hover {
-    background-color: black;
-}
-.form-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px; 
-    margin-top: 20px;
-    margin-left: 30%;
-}
-
-.input-container {
-    position: relative;
-    width: 80%;
-}
-
-.input-container input {
-    background-color: #EDEDED;
-    width: 80%;
-    padding-left: 40px;
-    height: 50px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-family: 'Poppins';
-}
-
-.input-container .input-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-}
-
-/*Style simulador*/
-
-.simulador-body {
-    background-color: #0a1f1c;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    padding: 40px;
-}
-
-.simulador-container {
-    background-color: #144f44;
-    border-radius: 20px;
-    padding: 40px;
-    width: 60%;
-    margin: 80px auto; /* espaço do topo + centralização horizontal */
-    box-shadow: 0px 0px 15px #00000050;
-}
-
-.simulador-titulo {
-    color: #00ffd1;
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.campo {
-    margin-bottom: 20px;
-    color: black;
-    font-weight: bold;
-}
-
-.campo label {
-    font-size: 18px;
-}
-
-.campo input {
-    margin-top: 5px;
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-}
-
-.botao-calcular {
-    background-color: #171f1d;
-    color: white;
-    font-size: 18px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-    border: none;
-}
-
-.botao-calcular:hover {
-    background-color: black;
-}
-
-.resultado-titulo {
-    margin-top: 30px;
-    font-size: 24px;
-    color: #00ffd1;
-}
-
-.resultado-msg {
-    margin-top: 10px;
-    font-size: 18px;
-    line-height: 1.6;
-    color: white;
-}
+    body {
+        font-family: 'Poppins';
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        background-color: #0a1f1c;
+        height: 100%;
+    }
+
+    .imagem {
+        margin-left: 15px;
+        width: 83px;
+        height: 50px;
+        background-size: cover;     
+        background-image: url('../assets/logo-eclipseed-white.png');
+    }
+
+    .conteudoImg {
+        margin-top: 25%;
+        border-radius: 15px;
+        width: 400px;
+        height: 500px;
+        background-size: cover;
+        background-image: url('../assets/homeplanta.png');
+    }
+
+    .conteudoImg2 {
+        margin-top: 25%;
+        border-radius: 15px;
+        width: 400px;
+        height: 500px;
+        background-size: cover;
+        background-image: url('../assets/img-home-login.png');
+    }
+
+    .header {
+        display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        justify-content: space-between;
+        align-items: center;
+        height: 15%;
+        width: 100%;
+        font-size: 18px;
+        background-color: #144f44;
+        color: white;
+    }
+
+    .navegacao {
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        margin-right: 5%;
+        margin-left: 15%;
+    }
+
+    .login {
+        padding-right: 3%;
+    }
+
+    .atual {
+        font-weight: bolder;
+    }
+
+    .navegacao a {
+        text-decoration: none;
+        font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+    }
+
+    .login span {
+        font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 0.8rem;
+    }
+
+    .textoChamativo {
+        font-weight: bolder;
+        text-decoration: none;
+        font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        font-size: 0.9rem; 
+    }
+
+
+    .container {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .container h1 {
+        font-size: 85px;
+        color: #00ffd1;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+
+    .container span {
+        font-size: 20px;
+        color: #f0f4f4;
+        font-family: 'Poppins', Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .botao {
+        border-radius: 15px;
+        border: none;
+        width: 30%;
+        height: 45px;
+        background-color: #144f44;
+        color: white;
+        cursor: pointer;
+    }
+
+    .botao:hover {
+        background-color: black;
+    }
+
+
+    .container .mensagem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sobre_nos {
+        margin-top: 15%;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 75%;
+        justify-content: space-around;
+        align-items: space-around;
+
+    }
+
+    .sobre_nos .imagens {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: 5%;
+        margin-top: 5px;
+    }
+
+    .sobre_nos .sobrenos {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        color: white;
+        justify-content: cover;
+        align-items: cover;
+    }
+
+    .sobre_nos .sobrenos h1 {
+        font-size: 45px;
+    }
+
+    .sobre_nos .sobrenos span {
+        font-size: 25px;
+        margin-right: 30px;
+    }
+
+    .sobre_nos .imagens img {
+        width: 70%;
+        height: 25%;
+        padding: 2.5%;
+        border-radius: 45px;
+    }
+
+    .sobre_nos .imagens #imagem-direita {
+        margin-left: 20%;
+    }
+
+    .perguntasFreq {
+        margin-top: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        height: 800px;
+    }
+
+    .perguntasFreq .cards {
+        display: flex;
+        background-color: #144f44;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        width: 50%;
+        height: 15%;
+        padding: 20px;
+    }
+
+    .perguntasFreq .cards span {
+        color: antiquewhite;
+        text-decoration: underline;
+    }
+
+    .fac {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: white;
+        align-items: center;
+    }
+
+    .fac .formulario {
+        border-radius: 10px;
+        background-color: #144f44;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 600px;
+        width: 600px;
+    }
+
+    .fac .formulario input {
+        padding: 2.5%;
+        width: 70%;
+        border-radius: 15px;
+    }
+
+    .fac .formulario textarea {
+        height: 100px;
+        width: 75%;
+        border-radius: 15px;
+    }
+
+    .fac .formulario .botao {
+        background-color: #171f1d;
+    }
+
+    .footer {
+        background-color: #144f44;
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 200px;
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .footer span {
+        padding: 15px;
+        font-weight: bolder;
+    }
+
+
+    /* MONITORAMENTO */
+    .icon-profile {
+        width: 50px;
+        height: 50px;
+    }
+
+    .container-monitoramento {
+        width: 80%;
+        height: 500px;
+        margin-left: 10%;
+        align-items: center;
+    }
+
+    .container-monitoramento h1 {
+        font-size: 50px;
+        color: white;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+
+    .conteudo-monitoramento {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: fit-content;
+        width: 100%;
+        gap: 40px;
+    }
+
+    .legenda {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .legenda span {
+        justify-content: center;
+        margin-top: 2%;
+        margin-right: 40px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .sensores {
+        display: flex;
+        justify-content: center;
+        background-color: #1d332f;
+        border-style: solid;
+        border-width: 2px;
+        height: 200px;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .sensores button {
+        margin-top: 10px;
+        border: none;
+        height: 40px;
+        width: 80%;
+        background-color: #171f1d;
+        color: white;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .sensores button:hover {
+        background-color: black;
+    }
+
+    .metricas {
+        display: flex;
+        flex-direction: column;
+        background-color: #1d332f;
+        border-style: solid;
+        border-width: 2px;
+        height: 100px;
+        width: 100%;
+        border-radius: 20px;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .linha-metrica {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .maximo,
+    .minimo {
+        height: 2px;
+        width: 40px;
+        border-radius: 4px;
+    }
+
+    .maximo {
+        background-color: red;
+    }
+
+    .minimo {
+        background-color: #FFBB00;
+    }
+
+    .texto-metrica {
+        font-size: 15px;
+        font-family: 'Poppins';
+        color: white;
+    }
+
+    .grafico {
+        width: 75%
+    }
+
+    /* CADASTRO E LOGIN */
+    .body-dif {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
+        /* overflow: hidden; */
+    }
+
+
+    .left-pag {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 750px;
+        width: 35%;
+        background-color: #144f44;
+    }
+
+    .left-pagca {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 1000px;
+        width: 35%;
+        background-color: #144f44;
+    }
+
+    .left-pag .icon-back {
+        padding: 25px;
+        height: 55px;
+        width: 55px;
+    }
+    .left-pagca .icon-back {
+        padding: 25px;
+        height: 55px;
+        width: 55px;
+    }
+
+    .left-pag .logo-white-big {
+        margin-left: 18%;
+        height: 160px;
+    }
+
+    .left-pagca .logo-white-big {
+        margin-left: 18%;
+        height: 160px;
+    }
+
+    .left-pag p {
+        font-size: 40px;
+        padding: 40px;
+        color: white;
+    }
+
+    .left-pagca p {
+        font-size: 40px;
+        padding: 40px;
+        color: white;
+    }
+
+    .left-pag button {
+        margin: 40px;
+        border: none;
+        height: 56px;
+        width: 40%;
+        background-color: #171f1d;
+        color: white;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .left-pagca button {
+        margin: 40px;
+        border: none;
+        height: 56px;
+        width: 40%;
+        background-color: #171f1d;
+        color: white;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .left-pag button:hover {
+        background-color: black;
+    }
+
+    .left-pagca button:hover {
+        background-color: black;
+    }
+
+    .left-pag span {
+        margin: 40px;
+        color: white;
+    }
+
+    .left-pagca span {
+        margin: 40px;
+        color: white;
+    }
+
+    .left-pag a {
+        text-decoration: underline;
+        font-weight: bold;
+        color: #00ffd1;
+    }
+
+    .left-pagca a {
+        text-decoration: underline;
+        font-weight: bold;
+        color: #00ffd1;
+    }
+
+    .right-pag {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        height: 100%;
+        width: 65%;
+        overflow: hidden;
+    }
+
+    .right-pag h1 {
+        color: #00ffd1;
+        font-size: 40px;
+    }
+
+    .right-pag p {
+        margin-top: 0;
+        color: #00ffd0dc;
+    }
+
+    .right-pag button {
+        margin: 40px;
+        border: none;
+        height: 56px;
+        width: 20%;
+        background-color: #144f44;
+        color: white;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .right-pag button:hover {
+        background-color: black;
+    }
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px; 
+        margin-top: 20px;
+        margin-left: 30%;
+    }
+
+    .input-container {
+        position: relative;
+        width: 80%;
+    }
+
+    .input-container input {
+        background-color: #EDEDED;
+        width: 80%;
+        padding-left: 40px;
+        height: 50px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-family: 'Poppins';
+    }
+
+    .input-container .input-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+    }
+
+    /*Style simulador*/
+
+    .simulador-body {
+        background-color: #0a1f1c;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        padding: 40px;
+    }
+
+    .simulador-container {
+        background-color: #144f44;
+        border-radius: 20px;
+        padding: 40px;
+        width: 60%;
+        margin: 80px auto; /* espaço do topo + centralização horizontal */
+        box-shadow: 0px 0px 15px #00000050;
+    }
+
+    .simulador-titulo {
+        color: #00ffd1;
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .campo {
+        margin-bottom: 20px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .campo label {
+        font-size: 18px;
+    }
+
+    .campo input {
+        margin-top: 5px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+    }
+
+    .botao-calcular {
+        background-color: #171f1d;
+        color: white;
+        font-size: 18px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+        border: none;
+    }
+
+    .botao-calcular:hover {
+        background-color: black;
+    }
+
+    .resultado-titulo {
+        margin-top: 30px;
+        font-size: 24px;
+        color: #00ffd1;
+    }
+
+    .resultado-msg {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 1.6;
+        color: white;
+    }
+
+    
