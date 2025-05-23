@@ -11,16 +11,16 @@ const myChart = new Chart(ctx, {
             backgroundColor: ['red', 'green', 'blue'],
         }]
     },
-    plugins: [ChartDataLabels],
+    plugins: [ChartDataLabels], // ativa a biblioteca para colocar o valor dentro
     options: {
         plugins: {
             datalabels: {
-                display: 'inside',
+                display: 'inside', // coloca o valor dentro
                 formatter: (value, context) => {
                     const sum = context.dataset.data.reduce((a, b) => a + b, 0);
                     const percentage = (value / sum * 100).toFixed(1) + '%';
                     return percentage;
-                },
+                }, //formatacao para porcentagem
                 font: {
                   size: 24
               },
