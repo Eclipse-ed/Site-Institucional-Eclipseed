@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="icon" type="image/x-icon" href="./assets/logo-eclipseed-white.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body class="body-dif">
     <div class="left-pagca">
         <a href="index.html"><img class="icon-back" src="./assets/btn_voltar.png" alt="icon-back"></a>
@@ -30,8 +34,8 @@
 
         <div class="form-container">
             <div class="input-container">
-                <img src="./assets/icon-nome.png" alt="ícone" class="input-icon">
-                <input type="text" placeholder="Razão Social" id="input_razaoSocial">
+                <img src="./assets/icon-complemento.png" alt="ícone" class="input-icon">
+                <input id="input_codigo" type="text" maxlength="9" placeholder="Código de Ativação">
             </div>
 
             <div class="input-container">
@@ -48,60 +52,96 @@
                 <img src="./assets/icon-senha.png" alt="ícone" class="input-icon">
                 <input type="password" oninput="formatar4()" min="8" placeholder="Senha" id="input_senha">
             </div>
-            <div style="color: white;">  
+            <div style="color: white;">
                 A senha deve conter 8 caracteres e um caracter especial (!@#$%¨&*())
             </div>
-        
-            <span id="div_mensagem" >
-        
+
+            <span id="div_mensagem">
             </span>
 
-            <div class="input-container">
-                <img src="./assets/icon-cnpj.png" alt="ícone" class="input-icon">
-                <input oninput="formatar()" id="input_cnpj" type="text" maxlength="18" placeholder="CNPJ">
-            </div>
-            
             <div class="input-container">
                 <img src="./assets/icon-contato.png" alt="ícone" class="input-icon">
                 <input oninput="formatar2()" id="input_telefone" type="text" maxlength="14" placeholder="Telefone">
             </div>
-
-            <div class="input-container">
-                <img src="./assets/icon-cep.png" alt="ícone" class="input-icon">
-                <input oninput="formatar3()" id="input_cep" type="text" maxlength="9" placeholder="CEP">
-            </div>
-
-            <div class="input-container">
-                <img src="./assets/icon-numeros (2).png" alt="ícone" class="input-icon">
-                <input id="input_numero" type="number" maxlength="9" placeholder="Número">
-            </div>
-            
-            <div class="input-container">
-                <img src="./assets/icon-complemento.png" alt="ícone" class="input-icon">
-                <input id="input_complemento" type="text" maxlength="9" placeholder="Complemento (OPCIONAL)">
-            </div>
         </div>
-        <button onclick="cadastrar()" >Cadastrar</button>
+        <button onclick="cadastrar()">Cadastrar</button>
 
     </div>
 </body>
+
 </html>
 <script>
+    const empresas = [
+        {
+            id: 1,
+            codigoAtivacao: '4002' //ESSE CODIGO TEM QUE COLOCAR MANUALMENTE NA EMPRESA CADASTRADA
+        },
+        {
+            id: 2,
+            codigoAtivacao: '1498'
+        }
+    ]
+
+
     function cadastrar() {
-    var cnpj = input_cnpj.value;
+        var codigo = input_codigo.value;
         var nome = input_nome.value;
-        var razao = input_razaoSocial.value
         var email = input_email.value;
         var senha = input_senha.value;
-        var telefone = input_telefone.value
-        var numero = input_numero.value
         var telefone = input_telefone.value;
-        var cep = input_cep.value;
 
-        if (cnpj == '' || nome == '' || email == '' || senha == '' || telefone == '' || numero == '' || telefone == '' || cep == '' || razao == '') {
+        var fkEmpresa = 0;
+
+        if (codigo == '' || nome == '' || email == '' || senha == '' || telefone == '') {
             alert('Todos os dados devem ser preenchidos!')
-        }else{
-            window.location.href = "./login.html";
+        } else {
+
+            for (let i = 0; i < empresas.length; i++) {
+                if (codigo == empresas[i].codigoAtivacao) {
+                    fkEmpresa = empresas[i].id;
+                }
+            }
+
+            if (fkEmpresa == 0) {
+                alert('Código de Ativação INVÁLIDO!');
+                return false
+            } else {
+                fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeServer: nome,
+                        senhaServer: senha,
+                        emailServer: email,
+                        telefoneServer: telefone,
+                        fkEmpresaServer: fkEmpresa
+                    }),
+                })
+                    .then(function (resposta) {
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                            setTimeout(() => {
+                                window.location = "login.html";
+                            }, "2000");
+                        } else {
+                            throw "Houve um erro ao tentar realizar o cadastro!";
+                        }
+                    })
+                    .catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                    });
+
+                return false;
+            }
+
+
         }
 
     }
@@ -155,26 +195,27 @@
             if (telefone.length > 0 && i == 0) {
                 telefoneFormatado += `(${caractereAtual}`
             } else if (telefone.length > 2 && i == 1) {
-                telefoneFormatado += `${caractereAtual})` 
+                telefoneFormatado += `${caractereAtual})`
             }
-            else if (telefone.length > 7 && i ==6 ) {
-                telefoneFormatado += `${caractereAtual}-`}
-             else {
+            else if (telefone.length > 7 && i == 6) {
+                telefoneFormatado += `${caractereAtual}-`
+            }
+            else {
                 telefoneFormatado += `${caractereAtual}`
             }
 
         }
 
         input_telefone.value = telefoneFormatado;
-       
+
     }
-        function formatar3() {
+    function formatar3() {
         var cep = input_cep.value;
 
         cep = cep.replaceAll("-", "");
 
         var cepFormatado = "";
-       
+
 
         for (var i = 0; i < cep.length; i++) {
             var caractereAtual = cep[i];
@@ -186,40 +227,39 @@
                 cepFormatado += `${caractereAtual}`
             }
 
-  }
+        }
 
         input_cep.value = cepFormatado;
 
- }
+    }
 
- function formatar4() {
-    var senha = input_senha.value
-    var caracteresEspeciais = '!@#$%¨&*()'
-    var mensagem = ''
-    var contem = 0
+    function formatar4() {
+        var senha = input_senha.value
+        var caracteresEspeciais = '!@#$%¨&*()'
+        var mensagem = ''
+        var contem = 0
 
-    for (var i = 0; i <= senha.length; i++){
-        var caracterAtual = senha[i]
+        for (var i = 0; i <= senha.length; i++) {
+            var caracterAtual = senha[i]
 
-        for (var j = 0; j < caracteresEspeciais.length; j++){
+            for (var j = 0; j < caracteresEspeciais.length; j++) {
 
-            if (caracterAtual == caracteresEspeciais[j]){
-                contem++;
+                if (caracterAtual == caracteresEspeciais[j]) {
+                    contem++;
+                }
             }
+
         }
 
-    }
-    
-    if (contem > 0 && senha.length >= 8 ){
+        if (contem > 0 && senha.length >= 8) {
             mensagem += '<span style="color: #00ffd1"> A senha está válida </span>'
-        }else{
+        } else {
             mensagem += '<span style="color: red"> A senha está inválida </span>'
         }
 
-    div_mensagem.innerHTML = mensagem
+        div_mensagem.innerHTML = mensagem
 
- }
+    }
 
-    
+
 </script>
-

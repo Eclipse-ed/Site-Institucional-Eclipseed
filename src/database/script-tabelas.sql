@@ -6,16 +6,38 @@
 comandos para mysql server
 */
 
-CREATE DATABASE nome;
+CREATE DATABASE eclipseed;
 
-USE nome;
+USE eclipseed;
 
 -- CRIAÇÃO DAS TABELAS
-CREATE TABLE usuario (
-
+CREATE TABLE empresa (
+	idEmpresa int primary key auto_increment,
+    razaoSocial varchar(45),
+    senha varchar(45),
+    cnpj char(18),
+    cep char(9),
+    estado char(2),
+    cidade varchar(45),
+    bairro varchar(45),
+    rua varchar(45),
+    logradouro char(3),
+	codigoAtivacao varchar(45)
 );
 
--- INSERT DOS PERSONAGENS DISPONIVEIS
+CREATE TABLE funcionario (
+	idFuncionario int primary key auto_increment,
+    usuario varchar(45),
+    senha varchar(45),
+    email varchar(45),
+    telefone char(15),
+    fkEmpresa int,
+    constraint fkEmpresaFunc 
+		foreign key (fkEmpresa) 
+			references empresa(idEmpresa)
+);
+
+-- INSERT DOS CODIGOS DE ATIVACAO 
 
     
 -- SELECTS
