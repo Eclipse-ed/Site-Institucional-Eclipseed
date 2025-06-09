@@ -21,9 +21,53 @@ function autenticar(req, res) {
 
                         if (resultadoAutenticar.length > 0) {
                             res.json({
-                                id: resultadoAutenticar[0].id,
-                                nome: resultadoAutenticar[0].nome,
+                                idFuncionario: resultadoAutenticar[0].idFuncionario,
+                                usuario: resultadoAutenticar[0].usuario,
                                 email: resultadoAutenticar[0].email,
+                                senha: resultadoAutenticar[0].senha,
+                                resultados: resultadoAutenticar
+                            });
+                        }
+                    } else if (resultadoAutenticar.length == 0) {
+                        res.status(403).send("Email e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+function autenticarEmpresa(req, res) {
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+
+    if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+
+        usuarioModel.autenticarEmpresa(email, senha)
+            .then(
+                function (resultadoAutenticar) {
+                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+
+                    if (resultadoAutenticar.length == 1) {
+                        console.log(resultadoAutenticar);
+
+                        if (resultadoAutenticar.length > 0) {
+                            res.json({
+                                idEmpresa: resultadoAutenticar[0].idEmpresa,
+                                razaoSocial: resultadoAutenticar[0].razaoSocial,
                                 senha: resultadoAutenticar[0].senha,
                                 resultados: resultadoAutenticar
                             });
@@ -142,6 +186,7 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
     autenticar,
+    autenticarEmpresa,
     cadastrar,
     cadastrarEmpresa
 }

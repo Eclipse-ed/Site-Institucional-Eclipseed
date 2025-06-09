@@ -38,7 +38,7 @@ CREATE TABLE funcionario (
 );
 
 -- INSERT DOS CODIGOS DE ATIVACAO 
-
+UPDATE empresa SET codigoAtivacao = '4002' WHERE idEmpresa = 1;		
     
 -- SELECTS
-SELECT * FROM usuario;		
+SELECT * FROM empresa;		
