@@ -183,10 +183,30 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function listarFuncionarios(req, res) {
+    var idEmpresa = req.params.id;
+
+    usuarioModel.listarFuncionarios(idEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao pegar as suas últimas 5 partidas! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
     autenticar,
     autenticarEmpresa,
     cadastrar,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarFuncionarios
 }

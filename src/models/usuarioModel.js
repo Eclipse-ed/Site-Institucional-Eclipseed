@@ -43,9 +43,21 @@ function cadastrarEmpresa(razaoSocial, senha, cnpj, cep, estado, cidade, bairro,
     return database.executar(instrucaoSql);
 }
 
+function listarFuncionarios(idEmpresa) {
+    console.log("PASSEI AQUI!");
+
+    var instrucaoSql = `
+        SELECT codigoAtivacao, razaoSocial, idFuncionario AS idFuncionario, usuario AS nomeFuncionario, email AS emailFuncionario FROM funcionario 
+        JOIN empresa ON funcionario.fkEmpresa = empresa.idEmpresa WHERE empresa.idEmpresa = ${idEmpresa};
+    `;
+    console.log('Executando a instrução SQL \n' + instrucaoSql);
+    return database.executar(instrucaoSql)
+}
+
 module.exports = {
     autenticar,
     autenticarEmpresa,
     cadastrar,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    listarFuncionarios
 };

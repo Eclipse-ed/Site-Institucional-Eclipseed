@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="listaFuncionarios()">
     <div class="pagina">
         <div class="div1">
             <div class="sidebar">
@@ -22,42 +22,10 @@
                         <div class="navdir">
                             <a href="">
                                 <img src="./assets/icon-home.png">
-                                Dashboard
+                                Sair
                             </a>
                         </div>
                     </div>
-                    <div class="borda">
-                        <div class="navdir">
-                            <a href="">
-                                <img src="./assets/icon-sensor.png">
-                                Luminosidade
-                            </a>
-                        </div>
-                    </div>
-                    <div class="borda">
-                        <div class="navdir">
-                            <a href="">
-                                <img src="./assets/icon-alert2.png">
-                                Alertas
-                            </a>
-                        </div>
-                    </div>
-                    <div class="borda">
-                        <div class="navdir">
-                            <a href="">
-                                <img src="./assets/icon-config.png">
-                                Configurações
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerf">
-                    <img src="./assets/icon-profile.png">
-                    <div class="infos">
-                        João Silva
-                        Administrador
-                    </div>
-                    <img src="./assets/sair.png">
                 </div>
             </div>
         </div>
@@ -72,8 +40,12 @@
             <div class="listaFuncionarios">
                 <span class="subtitulo">Lista de Funcionários Cadastrados remetentes a sua Empresa</span>
 
-                <div class="lista">
+                <div class="lista" id="lista">
+                    <div class="legendasLista">
+                        <span>Id</span><span>Nome</span><span>Email</span>
+                    </div>
 
+                    <hr>
                 </div>
             </div>
 
@@ -84,4 +56,44 @@
 
 </html>
 <script src="./nova_dash/dash-script.js">
+</script>
+
+<script>
+    function listaFuncionarios() {
+        var idVar = sessionStorage.getItem('ID_EMPRESA');
+        var listaFunc = document.getElementById('lista');
+        var codigoDiv = document.getElementById('codigo');
+        var razaoDiv = document.getElementById('nomeEmpresa');
+
+        fetch(`./usuarios/listarFuncionarios/${idVar}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Erro ao buscar suas últimas partidas");
+                }
+            })
+            .then(function (dados) {
+                console.log("Dados recebidos:", dados);
+                razaoDiv.innerHTML = `${dados[0].razaoSocial}`;
+                codigoDiv.innerHTML = `${dados[0].codigoAtivacao}`;
+
+                for (var i = 0; i < dados.length; i++) {
+
+                    listaFunc.innerHTML += `                
+                    <div class="func">
+                        <span id="idFunc">${dados[i].idFuncionario}</span><span id="nomeFunc">${dados[i].nomeFuncionario}</span><span>${dados[i].emailFuncionario}</span>
+                    </div>`
+
+                }
+            }).catch(function (erro) {
+                console.error("Erro na requisição:", erro);
+            });
+    }
 </script>

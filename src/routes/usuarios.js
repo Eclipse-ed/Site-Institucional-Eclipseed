@@ -20,4 +20,8 @@ router.post("/autenticarEmpresa", function (req, res) {
     usuarioController.autenticarEmpresa(req, res);
 });
 
+router.get("/listarFuncionarios/:id", function (req, res) { 
+    usuarioController.listarFuncionarios(req, res);
+})
+
 module.exports = router;
