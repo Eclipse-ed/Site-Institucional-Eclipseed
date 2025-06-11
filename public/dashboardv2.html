@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -112,53 +112,7 @@
          <span class="subtituloGrafico">Monitoramento dos níveis de Luminosidade (lux) por setor</span>
     </div>
     <div class="alertas">
-  <div class="alerta critico">
-    <div class="icone"><img src="./assets/icon-dashboard.png" alt="Ícone Alerta"></div>
-    <div class="conteudoAlerta">
-      <div class="tituloAlerta">Luminosidade abaixo do ideal</div>
-      <div class="descricaoAlerta">Setor C - 5,120 lux (mínimo: 10,000 lux)</div>
-      <div class="rodapeAlerta">
-        <span class="tag critico">Crítico</span>
-        <span class="hora">Hoje, 09:45</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="alerta atencao">
-    <div class="icone"><img src="./assets/icon-dashboard.png" alt="Ícone Bateria"></div>
-    <div class="conteudoAlerta">
-      <div class="tituloAlerta">Bateria baixa em sensor</div>
-      <div class="descricaoAlerta">Sensor ID: LUX-08 - Setor B - 15% restante</div>
-      <div class="rodapeAlerta">
-        <span class="tag atencao">Atenção</span>
-        <span class="hora">Hoje, 08:30</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="alerta informativo">
-    <div class="icone"><img src="./assets/icon-dashboard.png" alt="Ícone Pico"></div>
-    <div class="conteudoAlerta">
-      <div class="tituloAlerta">Pico de luminosidade detectado</div>
-      <div class="descricaoAlerta">Setor A - 98,230 lux (máximo recomendado: 90,000 lux)</div>
-      <div class="rodapeAlerta">
-        <span class="tag informativo">Informativo</span>
-        <span class="hora">Hoje, 12:45</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="alerta critico">
-    <div class="icone"><img src="./assets/icon-dashboard.png" alt="Ícone Sensor Offline"></div>
-    <div class="conteudoAlerta">
-      <div class="tituloAlerta">Sensor offline</div>
-      <div class="descricaoAlerta">Sensor ID: LUX-12 - Setor C - Sem comunicação</div>
-      <div class="rodapeAlerta">
-        <span class="tag critico">Crítico</span>
-        <span class="hora">Ontem, 16:20</span>
-      </div>
-    </div>
-  </div>
+      <canvas id="graficoPizza"></canvas>
 </div>
 </div>
 </div>
@@ -168,3 +122,4 @@
 </html>
 <script src="./nova_dash/dash-script.js">
 </script>
+<script src="./nova_dash/dash-bola.js"></script>
