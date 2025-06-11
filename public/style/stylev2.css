@@ -25,6 +25,10 @@ body {
     font-size: 35px;
 }
 
+.subtitulo {
+    font-size: 30px;
+}
+
 .nomeSubtitulo {
     display: flex;
     /* align-items: space-around; */
@@ -282,4 +286,23 @@ body {
 
 .borda {
     padding: 25px;
+}
+
+hr {
+    margin: 2%;
+}
+
+.listaFuncionarios {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    height: 75vh;
+    background-color: #0288d1;
+}
+
+.lista {
+    margin-top: 1%;
+    height: 90%;
+    background-color: #43a047;
+    border-radius: 25px;
 }
