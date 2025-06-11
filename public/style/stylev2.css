@@ -8,6 +8,11 @@ body {
     overflow-x: hidden;
 }
 
+#graficoPizza {
+    width: 30vw !important;
+    height: 45vh !important;
+}
+
 .main {
     width: 84vw;
     padding: 15px 15px 15px 15px;
