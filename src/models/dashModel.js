@@ -7,7 +7,7 @@ SELECT
 	  sum(s.statusSensor) as 'sensores_ativos',
       count(s.statusSensor) - sum(s.statusSensor) as 'sensores_inativos'
 FROM
-	 plantacao p JOIN sensor s
+	 Plantacao p JOIN Sensor s
 ON
    p.idPlantacao = s.fkPlantacao
 WHERE p.idPlantacao = 1
@@ -22,14 +22,14 @@ function puxarluminosidadeMedia(){
     const instrucaoSqls = `
 SELECT
 	   p.idPlantacao as 'identificadorPlantacao',
-	   round(avg(r.lux),1) AS 'medialux', 
+	   ROUND(AVG(r.lux)) AS 'medialux', 
 	   day(r.dtHora) as 'dia'
-FROM plantacao p join sensor s
+FROM Plantacao p join Sensor s
 on p.idPlantacao = s.fkPlantacao
-JOIN registro r 
+JOIN Registro r 
 on r.fkSensor = s.idSensor
 where idPlantacao = 1
-group by p.idPlantacao, day(r.dtHora);
+group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
     `
     console.log(`A instrução é ${instrucaoSqls}`)
     return database.executar(instrucaoSqls)
@@ -41,9 +41,9 @@ function puxarMaiorLuminosidade(){
 	   p.idPlantacao as 'identificadorPlantacao',
 	   MAX(r.lux) AS 'maiorlux', 
 	   day(r.dtHora) as 'dia'
-FROM plantacao p join sensor s
+FROM Plantacao p join Sensor s
 on p.idPlantacao = s.fkPlantacao
-JOIN registro r 
+JOIN Registro r 
 on r.fkSensor = s.idSensor
 where idPlantacao = 1
 group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
@@ -54,16 +54,16 @@ group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
 
 function puxarMenorLuminosidade(){
     const instrucaoSql = `
-    SELECT
+SELECT
 	   p.idPlantacao as 'identificadorPlantacao',
 	   MIN(r.lux) AS 'menorlux', 
 	   day(r.dtHora) as 'dia'
-FROM plantacao p join sensor s
+FROM Plantacao p join Sensor s
 on p.idPlantacao = s.fkPlantacao
-JOIN registro r 
+JOIN Registro r 
 on r.fkSensor = s.idSensor
 where idPlantacao = 1
-group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) ASC LIMIT 1;
+group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
     `
           console.log(`A instrução é ${instrucaoSql}`)
     return database.executar(instrucaoSql)

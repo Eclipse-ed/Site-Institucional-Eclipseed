@@ -47,6 +47,9 @@ CREATE TABLE funcionario (
 			references empresa(idEmpresa)
 );
 
+SELECT * FROM empresa;
+UPDATE empresa SET codigoAtivacao = 'AX1221' WHERE idEmpresa = 1;
+
 -- Tabela Plantacao
 CREATE TABLE Plantacao (
   idPlantacao INT,
@@ -107,9 +110,9 @@ INSERT INTO Sensor VALUES
 
 -- Tabela Registro
 CREATE TABLE Registro (
-  idRegistro INT,
+  idRegistro INT auto_increment,
   lux FLOAT NOT NULL,
-  dtHora DATETIME NOT NULL,
+  dtHora DATETIME default current_timestamp NOT NULL,
   fkSensor INT,
   CONSTRAINT pkComposta4 PRIMARY KEY (idRegistro, fkSensor),
   CONSTRAINT fk_DadosSensor_Sensor1 
@@ -191,7 +194,9 @@ where idPlantacao = 1
 group by p.idPlantacao, day(r.dtHora);
 
 -- INSERT DOS CODIGOS DE ATIVACAO 
-UPDATE empresa SET codigoAtivacao = '4002' WHERE idEmpresa = 1;		
+UPDATE empresa SET codigoAtivacao = 'AX1221' WHERE idEmpresa = 1;		
     
 -- SELECTS
-SELECT * FROM empresa;		
+SELECT * FROM empresa;	
+
+SHOW TABLES;	
