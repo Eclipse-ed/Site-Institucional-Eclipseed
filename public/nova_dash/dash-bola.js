@@ -1,3 +1,100 @@
+function puxarDadosSensores(){
+    fetch(`/dash/puxarDadosSensores`, {
+        method: 'POST',
+        cache: 'no-store'
+    }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    plotarGraficoBola(resultado)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+function puxarluminosidadeMedia(){
+    fetch(`/dash/puxarluminosidadeMedia`, {
+        method: 'POST',
+        cache: 'no-store'
+    }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    exibirMediaKpi(resultado)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+
+function puxarMaiorLuminosidade(){
+    fetch(`/dash/puxarMaiorLuminosidade`, {
+        method: 'POST',
+        cache: 'no-store'
+    }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    exibirMaiorKpi(resultado)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+
+function puxarMenorLuminosidade(){
+    fetch(`/dash/puxarMenorLuminosidade`, {
+        method: 'POST',
+        cache: 'no-store'
+    }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    exibirMenorKpi(resultado)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+puxarDadosSensores()
+puxarMaiorLuminosidade()
+puxarluminosidadeMedia()
+puxarMenorLuminosidade()
+
+function exibirMenorKpi(resultado){
+    var kpi = document.getElementById('menorKpi')
+
+    kpi.innerHTML = `${resultado[0].menorlux} Lux`
+}
+function exibirMaiorKpi(resultado){
+    var kpi = document.getElementById('maiorKpi')
+
+    kpi.innerHTML = `${resultado[0].maiorlux} Lux`
+}
+
+function exibirMediaKpi(resultado){
+    var kpi = document.getElementById('mediaKpi')
+
+    kpi.innerHTML = `${resultado[0].medialux} Lux`
+}
+
+function plotarGraficoBola(resultado){
 console.log('iniciando plotagem do gráfico...');
 
             let labels = ['Sensores Ativos', 'Sensores Inativos'];
@@ -5,7 +102,7 @@ console.log('iniciando plotagem do gráfico...');
                 labels: labels,
                 datasets: [{
                     label: 'Status Sensores',
-                    data: [24, 1],
+                    data: [resultado[0].sensores_ativos, resultado[0].sensores_inativos],
                     backgroundColor: [
                         'rgba(360, 360, 360, 0.6)',
                         'rgba(255, 0, 0, 0.6)'
@@ -34,3 +131,4 @@ console.log('iniciando plotagem do gráfico...');
             window.myChart = new Chart(cof, config);
         
 
+}
