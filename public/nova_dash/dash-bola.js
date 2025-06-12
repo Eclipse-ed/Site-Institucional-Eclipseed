@@ -79,8 +79,15 @@ puxarMenorLuminosidade()
 
 function exibirMenorKpi(resultado){
     var kpi = document.getElementById('menorKpi')
-
-    kpi.innerHTML = `${resultado[0].menorlux} Lux`
+    var dado = resultado[0].menorlux
+    if (dado <= 10000 || dado >= 20000){
+        document.getElementById('media').style.backgroundColor = rgb(255, 145, 145, 0.9)
+    }else if (dado <= 13000 || dado >= 17000){
+        document.getElementById('media').style.backgroundColor = rgb(244, 255, 93, 0.9);
+    }else{
+        document.getElementById('media').style.backgroundColor = rgb(148, 255, 102, 0.9);
+    }
+    kpi.innerHTML = `${dado} Lux`
 }
 function exibirMaiorKpi(resultado){
     var kpi = document.getElementById('maiorKpi')
