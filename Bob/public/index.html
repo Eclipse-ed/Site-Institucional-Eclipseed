@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bobia.css">
+    <title>Suporte N3</title>
+</head>
+<body>
+     <header>  
+     <div class="navbar">
+        <div class="logo">
+          <img src="./assets/logo.png" alt="" />
+          <p id="pina">ECLIPSEED</p>
+        </div>
+        <ul class="elementos1">
+          <p>SUPORTE N3</p>
+        </ul>
+        <ul class="elementos2">
+          <li><a href="./teste.html">SAIR -></a> </li>
+          
+        </ul>
+      </div>
+      </header> 
+
+      <div class="container">
+
+        <div class="box1">
+            <img src="./assets/luzes.png" alt="">
+        </div>
+
+        <div class="box2">
+
+           <div class="minibox1">
+              <p>BobIA</p>
+          </div>
+
+          <div class="minibox2">
+            <img src="./assets/logo.png" alt="">
+          </div>
+
+          <div class="minibox3" id="resposta">
+           
+          </div> 
+
+          <div class="minibox4">
+            <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+            <br><br>
+            <button onclick="gerarResposta()">></button>
+          </div> 
+
+        </div>
+
+        <div class="box3">
+           <img src="./assets/luzes.png" alt="">
+        </div>
+
+      </div>
+
+        <script>
+        
+            async function gerarResposta() {
+            const pergunta = document.getElementById('pergunta').value;
+
+            const response = await fetch('/perguntar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pergunta })
+            });
+
+            const data = await response.json();
+
+            resposta.style.display = 'block';
+            document.getElementById('resposta').innerText = data.resultado;
+             }
+
+        </script>
+</body>
+</html>
