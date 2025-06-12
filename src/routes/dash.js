@@ -24,4 +24,8 @@ router.get("/ultimasMedidas", function (req, res) {
     dashController.ultimasMedidas(req, res);
 })
 
+router.get("/ultimaMedida", function (req, res) { 
+    dashController.ultimaMedida(req, res);
+})
+
 module.exports = router;

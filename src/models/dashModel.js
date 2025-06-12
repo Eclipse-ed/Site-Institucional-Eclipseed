@@ -79,10 +79,22 @@ SELECT idRegistro, lux AS lux, DATE_FORMAT(dtHora, '%H:%i:%s') AS dtHora FROM Re
     return database.executar(instrucaoSql)
 }
 
+function ultimaMedida() {
+
+
+    const instrucaoSql = `
+SELECT idRegistro, lux AS lux, DATE_FORMAT(dtHora, '%H:%i:%s') AS dtHora FROM Registro ORDER BY dtHora DESC LIMIT 1;  
+    `
+    console.log(`A instrução é ${instrucaoSql}`)
+    return database.executar(instrucaoSql)
+}
+
+
 module.exports = {
     puxarDadosSensores,
     puxarluminosidadeMedia,
     puxarMaiorLuminosidade,
     puxarMenorLuminosidade,
-    ultimasMedidas
+    ultimasMedidas,
+    ultimaMedida
 }

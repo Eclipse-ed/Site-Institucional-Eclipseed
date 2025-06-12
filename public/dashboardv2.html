@@ -10,7 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body onload="ultimasMedidas()">
@@ -24,44 +26,33 @@
                 <div class="direcionamentos">
                     <div class="borda">
                         <div class="navdir">
+                            <h1>Olá, <span id="username"></span></h1>
+                        </div>
+                    </div>
+                    <div class="borda">
+                        <div class="navdir">
                             <a href="">
-                                <img src="./assets/icon-home.png">
-                                Dashboard
+                                <img src="./assets/dash.png">
+                                Monitoramento
                             </a>
                         </div>
                     </div>
                     <div class="borda">
                         <div class="navdir">
                             <a href="">
-                                <img src="./assets/icon-sensor.png">
-                                Luminosidade
+                                <img src="./assets/suporte.png">
+                                Suporte
                             </a>
                         </div>
                     </div>
                     <div class="borda">
                         <div class="navdir">
-                            <a href="">
-                                <img src="./assets/icon-alert2.png">
-                                Alertas
+                            <a href="index.html">
+                                <img src="./assets/back.png">
+                                Sair
                             </a>
                         </div>
                     </div>
-                    <div class="borda">
-                        <div class="navdir">
-                            <a href="">
-                                <img src="./assets/icon-config.png">
-                                Configurações
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerf">
-                    <img src="./assets/icon-profile.png">
-                    <div class="infos">
-                        João Silva
-                        Administrador
-                    </div>
-                    <img src="./assets/sair.png">
                 </div>
             </div>
         </div>
@@ -74,28 +65,28 @@
                 <div id="media" class="kpi">
                     <div class="infoKpi">
                         <span class="kpi-titulo">Luminosidade Média</span>
-                        <img src="./assets/icon-lux.png">
+
                     </div>
                     <span id="mediaKpi" class="kpiDado">68,450 lux</span>
                 </div>
                 <div id="maior" class="kpi">
                     <div class="infoKpi">
                         <span class="kpi-titulo">Pico de Luminosidade</span>
-                        <img src="./assets/icon-lux.png">
+
                     </div>
                     <span id="maiorKpi" class="kpiDado">98,230 lux</span>
                 </div>
                 <div id="menor" class="kpi">
                     <div class="infoKpi">
                         <span class="kpi-titulo">Luminosidade Minima</span>
-                        <img src="./assets/icon-lux.png">
+
                     </div>
                     <span id="menorKpi" class="kpiDado">5,120 lux</span>
                 </div>
                 <div class="kpi">
                     <div class="infoKpi">
                         <span class="kpi-titulo">Legendas:</span>
-                        <img src="./assets/icon-lux.png">
+
                     </div>
                     <div class="critico">
                         <span class="legendaDado ">Abaixo de 10.000 lux (Crítico)</span>
@@ -135,8 +126,12 @@
 
 </html>
 <script>
+    let graficoMedidas; // <- define fora
 
     function ultimasMedidas() {
+        const nomeUser = document.getElementById('username');
+
+        nomeUser.innerHTML = `${sessionStorage.NOME_USUARIO}`;
 
         fetch(`/dash/ultimasMedidas`, {
             method: "GET",
@@ -145,7 +140,6 @@
             }
         })
             .then(function (resposta) {
-                console.log("resposta: ", resposta);
                 if (resposta.ok) {
                     return resposta.json();
                 } else {
@@ -153,8 +147,6 @@
                 }
             })
             .then(function (dados) {
-                console.log("Dados recebidos:", dados);
-
                 var medidas = [];
                 var horario = [];
 
@@ -168,44 +160,75 @@
                 }
 
                 var ctx = document.getElementById('graficoLuminosidade').getContext('2d');
-                var graficoMedidas = new Chart(ctx, {
+                let dado = {
+                    labels: horario,
+                    datasets: [
+                        {
+                            label: 'Sensor 1',
+                            data: medidas,
+                            borderColor: 'blue',
+                            backgroundColor: 'lightblue',
+                            tension: 0.3,
+                            pointBackgroundColor: 'blue',
+                            pointRadius: 5
+                        },
+                        {
+                            label: 'Sensor 2',
+                            data: [0, 0, 0, 0, 0],
+                            borderColor: 'orange',
+                            backgroundColor: 'orange',
+                            tension: 0.3,
+                            pointBackgroundColor: 'orange',
+                            pointRadius: 5
+                        },
+                        {
+                            label: 'Sensor 3',
+                            data: [0, 0, 0, 0, 0],
+                            borderColor: 'red',
+                            backgroundColor: 'red',
+                            tension: 0.3,
+                            pointBackgroundColor: 'red',
+                            pointRadius: 5
+                        }
+                    ]
+                }
+
+                graficoMedidas = new Chart(ctx, {
                     type: 'line',
-                    data: {
-                        labels: horario,
-                        datasets: [
-                            {
-                                label: 'Sensor 1',
-                                data: medidas,
-                                borderColor: 'blue',
-                                backgroundColor: 'lightblue',
-                                tension: 0.3,
-                                pointBackgroundColor: 'blue',
-                                pointRadius: 5
-                            },
-                            {
-                                label: 'Sensor 2',
-                                data: [0, 0, 0, 0, 0],
-                                borderColor: 'orange',
-                                backgroundColor: 'orange',
-                                tension: 0.3,
-                                pointBackgroundColor: 'orange',
-                                pointRadius: 5
-                            },
-                            {
-                                label: 'Sensor 3',
-                                data: [0, 0, 0, 0, 0],
-                                borderColor: 'red',
-                                backgroundColor: 'red',
-                                tension: 0.3,
-                                pointBackgroundColor: 'red',
-                                pointRadius: 5
-                            }
-                        ]
-                    },
+                    data: dado
                 });
-            })
+
+                setTimeout(() => atualizarGrafico(dado, horario, medidas), 2000);
+            });
     }
 
+
+    function atualizarGrafico(dado, horario, medidas) {
+        fetch(`/dash/ultimaMedida`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Erro ao buscar suas últimas medidas");
+                }
+            })
+            .then(function (dados) {
+                horario.shift();
+                horario.push(dados[0].dtHora);
+
+                medidas.shift();
+                medidas.push(dados[0].lux);
+
+                graficoMedidas.update(); // <- AQUI AGORA FUNCIONA
+
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dado, horario, medidas), 2000);
+            });
+    }
 </script>
 </script>
 <script src="./nova_dash/dash-bola.js"></script>
