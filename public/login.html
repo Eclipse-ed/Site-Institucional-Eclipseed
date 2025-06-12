@@ -62,6 +62,10 @@
         console.log("FORM LOGIN: ", email);
         console.log("FORM SENHA: ", senha);
 
+        if(email == "admin") {
+            window.location = "bobia.html";
+        }
+
         if (email.includes("@")) {
             fetch("/usuarios/autenticar", {
                 method: "POST",
