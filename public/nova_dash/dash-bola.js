@@ -81,11 +81,11 @@ function exibirMenorKpi(resultado){
     var kpi = document.getElementById('menorKpi')
     var dado = resultado[0].menorlux
     if (dado <= 10000 || dado >= 20000){
-        document.getElementById('menor').style.backgroundColor = rgb(255, 145, 145, 0.9)
+        document.getElementById('menor').style.backgroundColor = 'rgb(255, 145, 145, 0.9)'
     }else if (dado <= 13000 || dado >= 18000){
-        document.getElementById('menor').style.backgroundColor = rgb(244, 255, 93, 0.9);
+        document.getElementById('menor').style.backgroundColor = 'rgb(244, 255, 93, 0.9)';
     }else{
-        document.getElementById('menor').style.backgroundColor = rgb(148, 255, 102, 0.9);
+        document.getElementById('menor').style.backgroundColor = 'rgb(148, 255, 102, 0.9)';
     }
     kpi.innerHTML = `${dado} Lux`
 }
@@ -93,11 +93,11 @@ function exibirMaiorKpi(resultado){
     var kpi = document.getElementById('maiorKpi')
 var dado = resultado[0].maiorlux
     if (dado <= 10000 || dado >= 20000){
-        document.getElementById('maior').style.backgroundColor = rgb(255, 145, 145, 0.9)
+        document.getElementById('maior').style.backgroundColor = 'rgb(255, 145, 145, 0.9)'
     }else if (dado <= 13000 || dado >= 18000){
-        document.getElementById('maior').style.backgroundColor = rgb(244, 255, 93, 0.9);
+        document.getElementById('maior').style.backgroundColor = 'rgb(244, 255, 93, 0.9)';
     }else{
-        document.getElementById('maior').style.backgroundColor = rgb(148, 255, 102, 0.9);
+        document.getElementById('maior').style.backgroundColor = 'rgb(148, 255, 102, 0.9)';
     }
     kpi.innerHTML = `${dado} Lux`
 }
@@ -106,11 +106,11 @@ function exibirMediaKpi(resultado){
     var kpi = document.getElementById('mediaKpi')
 var dado = resultado[0].medialux
     if (dado <= 10000 || dado >= 20000){
-        document.getElementById('media').style.backgroundColor = rgb(255, 145, 145, 0.9)
+        document.getElementById('media').style.backgroundColor = 'rgb(255, 145, 145, 0.9)'
     }else if (dado <= 13000 || dado >= 18000){
-        document.getElementById('media').style.backgroundColor = rgb(244, 255, 93, 0.9);
+        document.getElementById('media').style.backgroundColor = 'rgb(244, 255, 93, 0.9)';
     }else{
-        document.getElementById('media').style.backgroundColor = rgb(148, 255, 102, 0.9);
+        document.getElementById('media').style.backgroundColor = 'rgb(148, 255, 102, 0.9)';
     }
     kpi.innerHTML = `${dado} Lux`
 }

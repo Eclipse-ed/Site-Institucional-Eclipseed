@@ -1,6 +1,6 @@
 var database = require("../database/config")
 
-function puxarDadosSensores(){
+function puxarDadosSensores() {
     const instrucaoSql = `
 SELECT 
 	  p.idPlantacao as 'identificador_plantacao',
@@ -18,7 +18,7 @@ group by p.nome;
     return database.executar(instrucaoSql);
 }
 
-function puxarluminosidadeMedia(){
+function puxarluminosidadeMedia() {
     const instrucaoSqls = `
 SELECT
 	   p.idPlantacao as 'identificadorPlantacao',
@@ -35,7 +35,7 @@ group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
     return database.executar(instrucaoSqls)
 }
 
-function puxarMaiorLuminosidade(){
+function puxarMaiorLuminosidade() {
     const instrucaoSql = `
     SELECT
 	   p.idPlantacao as 'identificadorPlantacao',
@@ -48,11 +48,11 @@ on r.fkSensor = s.idSensor
 where idPlantacao = 1
 group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
     `
-      console.log(`A instrução é ${instrucaoSql}`)
+    console.log(`A instrução é ${instrucaoSql}`)
     return database.executar(instrucaoSql)
 }
 
-function puxarMenorLuminosidade(){
+function puxarMenorLuminosidade() {
     const instrucaoSql = `
 SELECT
 	   p.idPlantacao as 'identificadorPlantacao',
@@ -65,12 +65,24 @@ on r.fkSensor = s.idSensor
 where idPlantacao = 1
 group by p.idPlantacao, day(r.dtHora) ORDER BY day(r.dtHora) DESC LIMIT 1;
     `
-          console.log(`A instrução é ${instrucaoSql}`)
+    console.log(`A instrução é ${instrucaoSql}`)
     return database.executar(instrucaoSql)
 }
+
+function ultimasMedidas() {
+
+
+    const instrucaoSql = `
+SELECT idRegistro, lux AS lux, DATE_FORMAT(dtHora, '%H:%i:%s') AS dtHora FROM Registro ORDER BY dtHora DESC LIMIT 5;  
+    `
+    console.log(`A instrução é ${instrucaoSql}`)
+    return database.executar(instrucaoSql)
+}
+
 module.exports = {
     puxarDadosSensores,
     puxarluminosidadeMedia,
     puxarMaiorLuminosidade,
-    puxarMenorLuminosidade
+    puxarMenorLuminosidade,
+    ultimasMedidas
 }

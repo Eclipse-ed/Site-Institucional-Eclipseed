@@ -20,4 +20,8 @@ router.post("/puxarMenorLuminosidade", function(req, res){
     dashController.puxarMenorLuminosidade(req,res)
 })
 
+router.get("/ultimasMedidas", function (req, res) { 
+    dashController.ultimasMedidas(req, res);
+})
+
 module.exports = router;
