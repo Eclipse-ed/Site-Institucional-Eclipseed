@@ -81,7 +81,7 @@
             })
             .then(function (dados) {
                 console.log("Dados recebidos:", dados);
-                razaoDiv.innerHTML = `${dados[0].razaoSocial}`;
+                razaoDiv.innerHTML = `Boas-vindas ${dados[0].razaoSocial}.`;
                 codigoDiv.innerHTML = `${dados[0].codigoAtivacao}`;
 
                 for (var i = 0; i < dados.length; i++) {
@@ -94,6 +94,8 @@
                 }
             }).catch(function (erro) {
                 console.error("Erro na requisição:", erro);
+                razaoDiv.innerHTML = `${sessionStorage.RAZAO_SOCIAL}`;
+                codigoDiv.innerHTML = `Em processo de aquisição.`;
             });
     }
 </script>
